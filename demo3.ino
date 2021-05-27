@@ -78,6 +78,11 @@ void setup() {
   scale.tare();
   
   motor_init();
+  digitalWrite(motorPin1, HIGH);
+  digitalWrite(motorPin2, LOW);
+  delay(5000);    
+  digitalWrite(motorPin1, LOW);
+  digitalWrite(motorPin2, LOW);
 }
 
 void loop() {
