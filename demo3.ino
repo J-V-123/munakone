@@ -220,7 +220,7 @@ void motor(int dir) {     // nosta/laske siivilä
   }
 }
 
-void motor_init();  {
+void motor_init()  {
   
 }
 
