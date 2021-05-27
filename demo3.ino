@@ -195,7 +195,7 @@ void menu_end() {
 
 float weigh_eggs()  { // munien punnitseminen
   mass = scale.get_units();
-  SerialPrintln(mass);
+  Serial.println(mass);
   return mass;
 }
 
