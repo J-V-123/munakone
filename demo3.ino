@@ -32,12 +32,12 @@ const int motorPin2 = 10;
 
 const int relayPin = 7;
 
-int amount;         // munien määrä
-int doneness;       // keittoaste
+float amount;         // munien määrä
+float doneness;       // keittoaste
 float cooktime;     // keittoaika
-int state = 0;      // ohjelman vaihe
-float mass = 58;    // munien massa
+float mass = 58.00;    // munien massa
 int cooktemp = 26;  // haluttu lämpötila keittämiselle
+int state = 0;      // ohjelman vaihe
 
 int button1;
 int button2; 
