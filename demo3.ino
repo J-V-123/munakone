@@ -115,9 +115,9 @@ void loop() {
       if (timeleft <= 0) {state = 7;}
     }
     else if (state == 7)  {
-      menu7();
-      tone(buzzerPin, 440, 1000);      // soita summeria
+      menu7();    
       motor(1);                        // munat pois vedestä
+      tone(buzzerPin, 440, 1000);      // soita summeria
       digitalWrite(relayPin, HIGH);    // levy pois päältä
       menu_end();
       state = 0;
@@ -150,9 +150,9 @@ int menu2()  {    // keittoasteen valinta
   lcd.setCursor(0,0);
   lcd.print("Kuinka kovaksi?     ");
   lcd.setCursor(0,1);
-  lcd.print("1=loysa, 2=pehmea");
+  lcd.print("1=loysa, 2=pehmea   ");
   lcd.setCursor(0,2);
-  lcd.print("3=kova    :DDD     ");
+  lcd.print("3=kova    :DDD      ");
   lcd.setCursor(0,3);
   lcd.print("                    ");
   while(1){
@@ -218,6 +218,10 @@ void motor(int dir) {     // nosta/laske siivilä
     digitalWrite(motorPin1, LOW);
     digitalWrite(motorPin2, LOW);
   }
+}
+
+void motor_init();  {
+  
 }
 
 float cooktime_calc(float doneness, float amount, float mass)  {   // kaava munien keittoajan laskuun
