@@ -26,12 +26,12 @@ const int buttonPin2 = 3;
 const int buttonPin3 = 4;
 const int buttonPin4 = 5;
 
-const int motorPin1 = 9;
-const int motorPin2 = 10;
+const int buzzerPin = 6;
 
 const int relayPin = 7;
 
-const int buzzerPin = 6;
+const int motorPin1 = 9;
+const int motorPin2 = 10;
 
 unsigned long previousMillis = 0;
 const long interval = 20;
@@ -224,6 +224,7 @@ float cooktime_calc(float doneness, float amount, float mass)  {   // kaava muni
   float t_egg = 21;
   float t_water = 95;  
   cooktime = 0.451 * (pow((mass/amount), (float)2/3)) * (log(0.76*((t_egg-t_water)/(doneness-t_water))));
+  //cooktime = 0.5    // testejä varten
   return cooktime;
 }
 
