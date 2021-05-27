@@ -33,6 +33,8 @@ const int relayPin = 7;
 const int motorPin1 = 9;
 const int motorPin2 = 10;
 
+const int motorSwitchPin = 13;
+
 unsigned long previousMillis = 0;
 const long interval = 20;
 
@@ -62,6 +64,8 @@ void setup() {
   pinMode(buttonPin2, INPUT_PULLUP);
   pinMode(buttonPin3, INPUT_PULLUP);
   pinMode(buttonPin4, INPUT_PULLUP);
+  
+  pinMode(motorSwitchPin, INPUT_PULLUP);
   
   pinMode(relayPin, OUTPUT);  
   
@@ -220,8 +224,13 @@ void motor(int dir) {     // nosta/laske siivilä
   }
 }
 
-void motor_init()  {
-  
+void motor_init()  {  
+  digitalWrite(motorPin1, LOW);
+  digitalWrite(motorPin2, HIGH);
+  delay(500);
+  while(1)
+    motorSwitch = digitalRead(motorSwitchPin);
+    if (motorSwitch == LOW) {return;}
 }
 
 float cooktime_calc(float doneness, float amount, float mass)  {   // kaava munien keittoajan laskuun
