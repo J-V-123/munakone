@@ -78,11 +78,12 @@ void loop() {
     float temp = sensors.getTempCByIndex(0);
     lcd.setCursor(12,3);
     lcd.print(temp);
-    if (state == 0) {
+    if (state == 0) {      
       menu1();
       state = 1;
       }
     else if (state == 1)  {
+      mass = weigh_eggs();
       menu2();
       state = 3;
       }
@@ -190,13 +191,10 @@ void menu_end() {
   }
 }
 
-int show_temp()  {    //  näytä lämpötila (ei tarvita)
-  sensors.requestTemperatures(); //
-  float temp = sensors.getTempCByIndex(0);
-  lcd.setCursor(11,1);
-  lcd.print(temp);
-  }
-
+float weigh_eggs()  { // munien punnitseminen
+  mass = scale.get_units();
+  SerialPrintln(mass);
+  return mass;
 
 void motor(int dir) {     // nosta/laske siivilä
   if (dir == 1) {   // nosto
