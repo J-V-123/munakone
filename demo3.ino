@@ -50,6 +50,8 @@ int button2;
 int button3; 
 int button4; 
 
+int motorSwitch;
+
 long bookmarktime;
 long timeleft;
 
