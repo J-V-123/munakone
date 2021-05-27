@@ -57,10 +57,9 @@ void setup() {
   pinMode(buttonPin3, INPUT_PULLUP);
   pinMode(buttonPin4, INPUT_PULLUP);
   
-  pinMode(relayPin, OUTPUT);
+  pinMode(relayPin, OUTPUT);  
   
-  L298N motorA(motorPin1, motorPin2);
-
+  digitalWrite(relayPin, HIGH);  // keittolevy aluksi pois päältä
 }
 
 void loop() {
