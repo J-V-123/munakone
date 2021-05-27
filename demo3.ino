@@ -36,7 +36,7 @@ int amount;         // munien määrä
 int doneness;       // keittoaste
 float cooktime;     // keittoaika
 int state = 0;      // ohjelman vaihe
-float mass;         // munien massa
+float mass = 58;         // munien massa
 
 int button1;
 int button2; 
