@@ -210,7 +210,7 @@ void motor(int dir) {     // nosta/laske siivilä
 float cooktime_calc(int doneness, int amount, float mass)  {   // kaava munien keittoajan laskuun
   int t_egg = 21;
   int t_water = 95;  
-  cooktime = 0.451 * power((mass/amount), (2/3)) * log(0.76*((t_egg-t_water)/(doneness-t_water)));
+  cooktime = 0.451 * pow((mass/amount), (2/3)) * log(0.76*((t_egg-t_water)/(doneness-t_water)));
   Serial.println(cooktime);
   return cooktime;
 }
