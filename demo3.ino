@@ -36,7 +36,7 @@ float amount;         // munien määrä
 float doneness;       // keittoaste
 float cooktime;     // keittoaika
 float mass = 58.00;    // munien massa
-int cooktemp = 26;  // haluttu lämpötila keittämiselle
+int cooktemp = 22;  // haluttu lämpötila keittämiselle
 int state = 0;      // ohjelman vaihe
 
 int button1;
