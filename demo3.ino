@@ -233,12 +233,18 @@ void motor(int dir) {     // nosta/laske siivilä
   }
 }
 
+bool pressed = false;
 void motor_init()  {  
-  digitalWrite(motorPin1, LOW);
-  digitalWrite(motorPin2, HIGH);
-  while(1)
-    motorSwitch = digitalRead(buttonPin1);
-    if (motorSwitch == LOW) {return;}
+  while (not pressed) {
+    motorSwitch = digitalRead(motorSwitchPin);
+    if (motorSwitch == HIGH)  {
+      digitalWrite(motorPin1, LOW);
+      digitalWrite(motorPin2, HIGH);
+      pressed = false;
+    }
+    else {pressed = true;}
+  }
+  return;
 }
 
 float cooktime_calc(float doneness, float amount, float mass)  {   // kaava munien keittoajan laskuun
