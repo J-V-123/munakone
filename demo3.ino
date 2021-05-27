@@ -91,7 +91,7 @@ void loop() {
     state = 6;
     }
     else if (state == 6)  {                  
-      timeleft = bookmarktime - millis();                   // work out the time left on every cycle based on the actual time that's expired according to the Arduino internal clock
+      timeleft = bookmarktime - millis();            // work out the time left on every cycle based on the actual time that's expired according to the Arduino internal clock
       lcd.setCursor(0,3);
       lcd.print("Time left:");
       lcd.setCursor(11,3);
