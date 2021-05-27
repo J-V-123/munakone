@@ -36,7 +36,8 @@ int amount;         // munien määrä
 int doneness;       // keittoaste
 float cooktime;     // keittoaika
 int state = 0;      // ohjelman vaihe
-float mass = 58;         // munien massa
+float mass = 58;    // munien massa
+int cooktemp = 26;  // haluttu lämpötila keittämiselle
 
 int button1;
 int button2; 
@@ -85,7 +86,7 @@ void loop() {
       menu3();
       state = 4;
     }
-    else if (state == 4 && temp >= 26)  {
+    else if (state == 4 && temp >= cooktemp)  {
       menu4();
       motor(-1);  // laske munat veteen
       cooktime = cooktime_calc(doneness, amount, mass);
