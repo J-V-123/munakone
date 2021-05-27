@@ -78,7 +78,7 @@ void setup() {
   scale.tare();
   
   motor_init();  // siivilä ylös aluksi
-  delay(500);
+  delay(100);
   digitalWrite(motorPin1, HIGH);
   digitalWrite(motorPin2, LOW);
   delay(2000);    
