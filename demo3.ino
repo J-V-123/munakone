@@ -21,18 +21,20 @@ HX711 scale;
 #define LOADCELL_DOUT_PIN 11
 #define LOADCELL_SCK_PIN 12
 
-int buttonPin1 = 2;
-int buttonPin2 = 3;
-int buttonPin3 = 4;
-int buttonPin4 = 5;
-
-unsigned long previousMillis = 0;
-const long interval = 20;
+const int buttonPin1 = 2;
+const int buttonPin2 = 3;
+const int buttonPin3 = 4;
+const int buttonPin4 = 5;
 
 const int motorPin1 = 9;
 const int motorPin2 = 10;
 
 const int relayPin = 7;
+
+const int buzzerPin = 6;
+
+unsigned long previousMillis = 0;
+const long interval = 20;
 
 float amount;         // munien määrä
 float doneness;       // keittoaste
@@ -114,7 +116,8 @@ void loop() {
     }
     else if (state == 7)  {
       menu7();
-      motor(1);                       // munat pois vedestä
+      tone(buzzerPin, 440, 1000);      // soita summeria
+      motor(1);                        // munat pois vedestä
       digitalWrite(relayPin, HIGH);    // levy pois päältä
       menu_end();
       state = 0;
