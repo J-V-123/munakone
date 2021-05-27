@@ -197,6 +197,7 @@ float weigh_eggs()  { // munien punnitseminen
   mass = scale.get_units();
   SerialPrintln(mass);
   return mass;
+}
 
 void motor(int dir) {     // nosta/laske siivilä
   if (dir == 1) {   // nosto
