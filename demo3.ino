@@ -86,7 +86,7 @@ void loop() {
       state = 4;
     }
     else if (state == 4 && temp >= 26)  {
-			menu4();
+      menu4();
       motor(-1);  // laske munat veteen
       cooktime = cooktime_calc(doneness, amount, mass);
       state = 5;
