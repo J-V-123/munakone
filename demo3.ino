@@ -236,7 +236,6 @@ void motor(int dir) {     // nosta/laske siivilä
 void motor_init()  {  
   digitalWrite(motorPin1, LOW);
   digitalWrite(motorPin2, HIGH);
-  delay(500);
   while(1)
     motorSwitch = digitalRead(buttonPin1);
     if (motorSwitch == LOW) {return;}
