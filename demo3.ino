@@ -197,12 +197,17 @@ void motor(int dir) {     // nosta/laske siivilä
   if (dir == 1) {   // nosto
     digitalWrite(motorPin1, LOW);
     digitalWrite(motorPin2, HIGH);
-    delay(2000);
+    delay(5000);
+    digitalWrite(motorPin1, LOW);
+    digitalWrite(motorPin2, LOW);
+
     }
   if (dir == -1)  {   // lasku
     digitalWrite(motorPin1, HIGH);
     digitalWrite(motorPin2, LOW);
-    delay(2000);
+    delay(5000);    
+    digitalWrite(motorPin1, LOW);
+    digitalWrite(motorPin2, LOW);
   }
 }
 
