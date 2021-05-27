@@ -47,6 +47,8 @@ int button4;
 long bookmarktime;
 long timeleft;
 
+float calibration_factor = -7050.0;
+
 void setup() {
   Serial.begin(9600);
   lcd.init();
@@ -60,6 +62,10 @@ void setup() {
   pinMode(relayPin, OUTPUT);  
   
   digitalWrite(relayPin, HIGH);  // keittolevy aluksi pois päältä
+  
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+  scale.set_scale(calibration_factor);
+  scale.tare();
 }
 
 void loop() {
@@ -117,11 +123,11 @@ int menu1() {   // munien määrän valinta
   lcd.setCursor(0,0);
   lcd.print("------MUNAKONE------");
   lcd.setCursor(0,1);
-  lcd.print("Montako munaa?      ");
+  lcd.print("Laita munat koriin  ");
   lcd.setCursor(0,2);
-  lcd.print("1, 2, 3, vai 4?     ");
+  lcd.print("Kuinka monta munaa? ");
   lcd.setCursor(0,3);
-  lcd.print("                    ");
+  lcd.print("1, 2, 3, vai 4?     ");
   while(1){
     button1 = digitalRead(buttonPin1);
     button2 = digitalRead(buttonPin2);
