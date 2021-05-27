@@ -229,7 +229,7 @@ void motor_init()  {
   digitalWrite(motorPin2, HIGH);
   delay(500);
   while(1)
-    motorSwitch = digitalRead(motorSwitchPin);
+    motorSwitch = digitalRead(buttonPin1);
     if (motorSwitch == LOW) {return;}
 }
 
