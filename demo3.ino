@@ -16,6 +16,8 @@ OneWire oneWire(ONE_WIRE_BUS);
 // Pass our oneWire reference to Dallas Temperature. 
 DallasTemperature sensors(&oneWire);
 
+HX711 scale;
+
 #define LOADCELL_DOUT_PIN 11
 #define LOADCELL_SCK_PIN 12
 
