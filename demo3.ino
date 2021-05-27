@@ -138,8 +138,6 @@ int menu1() {   // munien määrän valinta
 int menu2()  {    // keittoasteen valinta
   lcd.setCursor(0,0);
   lcd.print("Kuinka kovaksi?     ");
-  lcd.setCursor(16,0);
-  lcd.print(amount);
   lcd.setCursor(0,1);
   lcd.print("1=loysa, 2=pehmea");
   lcd.setCursor(0,2);
