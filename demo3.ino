@@ -77,10 +77,10 @@ void setup() {
   scale.set_scale(calibration_factor);
   scale.tare();
   
-  motor_init();
+  motor_init();  // siivilä ylös aluksi
   digitalWrite(motorPin1, HIGH);
   digitalWrite(motorPin2, LOW);
-  delay(5000);    
+  delay(2000);    
   digitalWrite(motorPin1, LOW);
   digitalWrite(motorPin2, LOW);
 }
