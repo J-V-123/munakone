@@ -74,6 +74,8 @@ void setup() {
   scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
   scale.set_scale(calibration_factor);
   scale.tare();
+  
+  motor_init();
 }
 
 void loop() {
