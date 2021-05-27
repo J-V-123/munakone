@@ -82,7 +82,7 @@ void loop() {
       state = 3;
       }
     else if (state == 3)  {
-      digitalWrite(relayPin, HIGH); // levy päälle
+      digitalWrite(relayPin, LOW); // levy päälle
       menu3();
       state = 4;
     }
@@ -107,7 +107,7 @@ void loop() {
     else if (state == 7)  {
       menu7();
       motor(1);                       // munat pois vedestä
-      digitalWrite(relayPin, LOW);    // levy pois päältä
+      digitalWrite(relayPin, HIGH);    // levy pois päältä
       menu_end();
       state = 0;
     }
