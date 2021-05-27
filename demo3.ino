@@ -101,7 +101,7 @@ void loop() {
       lcd.setCursor(0,2);
       lcd.print("Time left:");
       lcd.setCursor(11,2);
-      lcd.print(timeleft);
+      lcd.print(timeleft/(float)60000);
       if (timeleft <= 0) {state = 7;}
     }
     else if (state == 7)  {
@@ -150,16 +150,16 @@ int menu2()  {    // keittoasteen valinta
     button1 = digitalRead(buttonPin1);
     button2 = digitalRead(buttonPin2);
     button3 = digitalRead(buttonPin3);
-    if (button1 == LOW)  {doneness = 60; return doneness;}
-    else if (button2 == LOW)  {doneness = 65; return doneness;}
-    else if (button3 == LOW)  {doneness = 70; return doneness;}
+    if (button1 == LOW)  {doneness = 70; return doneness;}
+    else if (button2 == LOW)  {doneness = 75; return doneness;}
+    else if (button3 == LOW)  {doneness = 80; return doneness;}
   }
 }
 
 void menu3()  {
   lcd.clear();
   lcd.setCursor(0,0);
-  lcd.print("Vesi lampenee!");
+  lcd.print("Vesi lampenee...");
   lcd.setCursor(0,3);
   lcd.print("Lampotila:");
   }
@@ -212,7 +212,6 @@ float cooktime_calc(float doneness, float amount, float mass)  {   // kaava muni
   float t_egg = 21;
   float t_water = 95;  
   cooktime = 0.451 * (pow((mass/amount), (float)2/3)) * (log(0.76*((t_egg-t_water)/(doneness-t_water))));
-  Serial.println(cooktime);
   return cooktime;
 }
 
