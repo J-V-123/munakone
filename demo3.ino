@@ -38,8 +38,8 @@ const long interval = 20;
 float amount;         // munien määrä
 float doneness;       // keittoaste
 float cooktime;     // keittoaika
-float mass = 58.00;    // munien massa
-int cooktemp = 22;  // haluttu lämpötila keittämiselle
+float mass;    // munien massa
+int cooktemp = 90;  // veden tavoitelämpötila
 int state = 0;      // ohjelman vaihe
 
 int button1;
@@ -52,29 +52,29 @@ int motorSwitch;
 long bookmarktime;
 long timeleft;
 
-float calibration_factor = -7050.0;
+float calibration_factor = -7050.0; // vaa'an kalibrointikerroin
 
 void setup() {
-  Serial.begin(9600);
-  lcd.init();
+  Serial.begin(9600); // serial monitori ohjelmointia helpottamaan
+  lcd.init(); 
   lcd.backlight();  
   
-  pinMode(buttonPin1, INPUT_PULLUP);
+  pinMode(buttonPin1, INPUT_PULLUP); // painonappien pinmode
   pinMode(buttonPin2, INPUT_PULLUP);
   pinMode(buttonPin3, INPUT_PULLUP);
   pinMode(buttonPin4, INPUT_PULLUP);
   
-  pinMode(motorSwitchPin, INPUT_PULLUP);
+  pinMode(motorSwitchPin, INPUT_PULLUP); // home kytkin pinmode
   
-  pinMode(relayPin, OUTPUT);  
+  pinMode(relayPin, OUTPUT); // rele pinmode
   
   digitalWrite(relayPin, HIGH);  // keittolevy aluksi pois päältä
   
-  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN); // loadcellin kytkentä ja kalibrointi
   scale.set_scale(calibration_factor);
   scale.tare();
   
-  motor_init();  // siivilä ylös aluksi
+  motor_init();  // siivilä ylös aluksi kunnes törmää mikrokytkimeen ja sitten alas vähän matkaa
   delay(100);
   digitalWrite(motorPin1, HIGH);
   digitalWrite(motorPin2, LOW);
@@ -86,7 +86,7 @@ void setup() {
 void loop() {
   
   unsigned long currentMillis = millis();
-  if (currentMillis - previousMillis >= interval) {  // start timed event for read and send
+  if (currentMillis - previousMillis >= interval) { 
     previousMillis = currentMillis;
   
     sensors.requestTemperatures();
