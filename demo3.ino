@@ -7,33 +7,30 @@
 #include <HX711.h>    
 #include <math.h>
 
-LiquidCrystal_I2C lcd(0x27, 20,4);  // Set the LCD I2C address
+LiquidCrystal_I2C lcd(0x27, 20,4);  // LCD i2c osoite
 
-#define ONE_WIRE_BUS 8
-// Setup a oneWire instance to communicate with any OneWire devices  
-// (not just Maxim/Dallas temperature ICs) 
+#define ONE_WIRE_BUS 8 // lämpöanturin kytkentäväylä
 OneWire oneWire(ONE_WIRE_BUS); 
-// Pass our oneWire reference to Dallas Temperature. 
 DallasTemperature sensors(&oneWire);
 
-HX711 scale;
+HX711 scale; // loadcell config
 
-#define LOADCELL_DOUT_PIN 11
+#define LOADCELL_DOUT_PIN 11 // loadcell kytkentä
 #define LOADCELL_SCK_PIN 12
 
-const int buttonPin1 = 2;
+const int buttonPin1 = 2; // painonapit
 const int buttonPin2 = 3;
 const int buttonPin3 = 4;
 const int buttonPin4 = 5;
 
-const int buzzerPin = 6;
+const int buzzerPin = 6; // summeri
 
-const int relayPin = 7;
+const int relayPin = 7; // keittolevyn virtakytkin
 
-const int motorPin1 = 9;
+const int motorPin1 = 9; // moottoriohjaimen kytkentä
 const int motorPin2 = 10;
 
-const int motorSwitchPin = 13;
+const int motorSwitchPin = 13; // home switch ylhäällä
 
 unsigned long previousMillis = 0;
 const long interval = 20;
